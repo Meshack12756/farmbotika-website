@@ -73,6 +73,20 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/limovictoria",
     github: "https://github.com/victorialimo",
   },
+  {
+    name: "Shalom Musyoki",
+    role: "IoT Engineer",
+    image: "/assets/sha.jpg",
+    linkedin: "http://www.linkedin.com/in/shalom-musyoki-a31b31282",
+    github: "https://github.com/musyokiii",
+  },
+  {
+    name: "Judith Atieno Adhiambo",
+    role: "Communication Specialist",
+    image: "/assets/cha.jpg",
+    linkedin: "https://www.linkedin.com/in/judith-odhiambo",
+    github: "https://github.com/Chachi15",
+  },
 ];
 
 const fadeUp = {
@@ -89,58 +103,50 @@ const Team = () => {
   const others = teamMembers.slice(1);
 
   return (
-    <section id="team" className="bg-green-100 text-green-800 py-16 px-4">
+    <section
+      id="team"
+      className="bg-gradient-to-br from-green-50 via-lime-100 to-white py-20 px-6 text-green-900"
+    >
       {/* Heading */}
       <motion.h2
-        className="text-4xl md:text-5xl text-center font-mogra text-green-800 drop-shadow mb-4"
+        className="text-4xl md:text-5xl text-center font-mogra drop-shadow mb-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: false }}
       >
-        Team
+        Meet the Team
       </motion.h2>
 
       <motion.p
-        className="text-black text-lg font-poppins text-center mb-10"
+        className="text-lg font-poppins text-center text-gray-700 mb-12 max-w-2xl mx-auto"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
         viewport={{ once: false }}
       >
-        Meet the dedicated team behind the project
+        The passionate minds behind FarmBotika — blending technology,
+        agriculture, and community impact.
       </motion.p>
 
       {/* Project PI */}
       <motion.div
-        className="max-w-2xl mx-auto mb-12"
+        className="max-w-3xl mx-auto mb-16"
         variants={fadeUp}
         custom={0}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
       >
-        <div className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-white bg-opacity-5 backdrop-blur-md rounded-lg shadow-lg transition hover:scale-[1.02]">
-          {pi.image ? (
-            <img
-              src={pi.image}
-              alt={pi.name}
-              className="w-28 h-28 rounded-full object-cover border-4 border-green-400"
-            />
-          ) : (
-            <div className="w-28 h-28 rounded-full bg-green-800 flex items-center justify-center text-white text-2xl font-semibold">
-              {pi.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")
-                .slice(0, 2)}
-            </div>
-          )}
+        <div className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-white/80 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl transition">
+          <img
+            src={pi.image}
+            alt={pi.name}
+            className="w-28 h-28 rounded-full object-cover border-4 border-green-400"
+          />
           <div className="text-center sm:text-left flex-1">
-            <h3 className="text-lg font-semibold text-green-800 mb-2">
-              {pi.name}
-            </h3>
-            <p className="text-sm text-black mb-2">{pi.role}</p>
+            <h3 className="text-xl font-semibold text-green-800">{pi.name}</h3>
+            <p className="text-sm text-gray-700 mb-2">{pi.role}</p>
             <div className="flex justify-center sm:justify-start gap-4 text-xl">
               {pi.linkedin && (
                 <a
@@ -168,7 +174,7 @@ const Team = () => {
       </motion.div>
 
       {/* Remaining Members */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {others.map((member, i) => (
           <motion.div
             key={i}
@@ -177,50 +183,38 @@ const Team = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
-            className="flex items-center gap-6 p-6 bg-white bg-opacity-5 backdrop-blur-md rounded-lg shadow-lg transition hover:scale-[1.02]"
+            className="flex flex-col items-center text-center p-6 bg-white/80 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl transition"
           >
-            {member.image ? (
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-28 h-28 rounded-full object-cover border-4 border-green-400"
-              />
-            ) : (
-              <div className="w-28 h-28 rounded-full bg-green-800 flex items-center justify-center text-white text-2xl font-semibold">
-                {member.name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")
-                  .slice(0, 2)}
-              </div>
-            )}
-            <div className="text-center sm:text-left flex-1">
-              <h3 className="text-lg font-semibold text-green-600 mb-2">
-                {member.name}
-              </h3>
-              <p className="text-sm text-black mb-2">{member.role}</p>
-              <div className="flex justify-center sm:justify-start gap-4 text-xl">
-                {member.linkedin && (
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-blue-600"
-                  >
-                    <FaLinkedin />
-                  </a>
-                )}
-                {member.github && (
-                  <a
-                    href={member.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-blue-600"
-                  >
-                    <FaGithub />
-                  </a>
-                )}
-              </div>
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-24 h-24 rounded-full object-cover border-4 border-green-300 mb-4"
+            />
+            <h3 className="text-lg font-semibold text-green-700">
+              {member.name}
+            </h3>
+            <p className="text-sm text-gray-700 mb-3">{member.role}</p>
+            <div className="flex gap-4 text-xl">
+              {member.linkedin && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-blue-600"
+                >
+                  <FaLinkedin />
+                </a>
+              )}
+              {member.github && (
+                <a
+                  href={member.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-blue-600"
+                >
+                  <FaGithub />
+                </a>
+              )}
             </div>
           </motion.div>
         ))}
