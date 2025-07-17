@@ -27,9 +27,6 @@ const Home = () => {
       <section id="team" className="">
         <Team />
       </section>
-      <section id="team" className="">
-        <Footer />
-      </section>
     </div>
   );
 };
